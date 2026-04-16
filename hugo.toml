@@ -1,6 +1,6 @@
 baseURL = "https://blog.183112.xyz"
 languageCode = "en-us"
-title = "island"
+title = "孤岛"
 theme = "PaperMod"
 
 [params]
@@ -11,7 +11,7 @@ theme = "PaperMod"
     ShowFullTextContent = false
 
     [params.homeInfoParams]
-        Title = "Oops, 404 not found"
+        Title = "Welcome To My World"
         Content = "Music, Movies, Musings"
 
 [[menu.main]]
