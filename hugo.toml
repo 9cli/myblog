@@ -10,6 +10,14 @@ theme = "PaperMod"
     ShowCodeCopyButtons = true
     ShowFullTextContent = false
 
+    [assets]
+        favicon = "/images/debian-logo.svg"
+
+    [params.label]
+        text = "孤岛"
+        icon = "/images/debian-logo.svg"
+        iconHeight = 35
+
     [params.homeInfoParams]
         Title = "Welcome To My World"
         Content = "Music, Movies, Musings"
