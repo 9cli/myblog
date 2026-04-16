@@ -1,6 +1,6 @@
 baseURL = "https://blog.183112.xyz"
 languageCode = "en-us"
-title ="Blog"
+title = "My Blog"
 theme = "PaperMod"
 
 [params]
@@ -8,15 +8,16 @@ theme = "PaperMod"
     showReadingTime = true
     ShowBreadCrumbs = true
     ShowToc = true
-    
+
     [params.homeInfoParams]
-        Title = "👋Welcome to my blog"
-        Content = ""
+        Title = "👋 Welcome to my blog"
+        Content = "This is my first site built with Hugo + Debian."
 
 [[menu.main]]
     name = "Archive"
     url = "/archives"
     weight = 10
+
 [[menu.main]]
     name = "Search"
     url = "/search"
