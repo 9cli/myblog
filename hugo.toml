@@ -1,24 +1,31 @@
 baseURL = "https://blog.183112.xyz"
 languageCode = "en-us"
-title = "Sam’s Hospital Blog"
+title = "island"
 theme = "PaperMod"
 
 [params]
     defaultTheme = "auto"
     showReadingTime = true
     ShowBreadCrumbs = true
-    ShowToc = true
+    ShowCodeCopyButtons = true
+    ShowFullTextContent = false
 
     [params.homeInfoParams]
-        Title = "👋 Welcome to my blog"
-        Content = "This is my first site built with Hugo + Debian."
+        Title = "Oops, 404 not found"
+        Content = "Music, Movies, Musings"
 
 [[menu.main]]
     name = "Archive"
     url = "/archives"
     weight = 10
-
 [[menu.main]]
     name = "Search"
     url = "/search"
     weight = 20
+[[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 30
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
