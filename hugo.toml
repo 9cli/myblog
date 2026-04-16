@@ -11,11 +11,11 @@ theme = "PaperMod"
     ShowFullTextContent = false
 
     [assets]
-        favicon = "/images/debian-logo.svg"
+        favicon = "images/debian-logo.svg"
 
     [params.label]
         text = "孤岛"
-        icon = "/images/debian-logo.svg"
+        icon = "images/debian-logo.svg"
         iconHeight = 35
 
     [params.homeInfoParams]
