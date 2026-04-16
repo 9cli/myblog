@@ -1,6 +1,6 @@
 baseURL = "https://blog.183112.xyz"
 languageCode = "en-us"
-title = "My Blog"
+title = "Sam’s Hospital Blog"
 theme = "PaperMod"
 
 [params]
