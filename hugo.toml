@@ -10,12 +10,17 @@ theme = "PaperMod"
     ShowCodeCopyButtons = true
     ShowFullTextContent = false
 
+    # 关键修改：添加 / 符号，并增加多种尺寸声明以兼容浏览器标签栏
     [assets]
-        favicon = "images/debian-logo.svg"
+        favicon = "/images/debian-logo.svg"
+        favicon16x16 = "/images/debian-logo.svg"
+        favicon32x32 = "/images/debian-logo.svg"
+        apple_touch_icon = "/images/debian-logo.svg"
+        safari_pinned_tab = "/images/debian-logo.svg"
 
     [params.label]
         text = "孤岛"
-        icon = "images/debian-logo.svg"
+        icon = "/images/debian-logo.svg"
         iconHeight = 35
 
     [params.homeInfoParams]
