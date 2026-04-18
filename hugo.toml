@@ -23,7 +23,7 @@ theme = "PaperMod"
 
     [params.homeInfoParams]
         Title = "Welcome To My World"
-        Content = "Music, Movies, Musings"
+        Content = "We only live once, and we could go at any time."
 
 [[menu.main]]
     name = "Archive"
