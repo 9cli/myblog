@@ -1,42 +1,56 @@
 baseURL = "https://blog.183112.xyz"
-languageCode = "en-us"
 title = "孤岛"
 theme = "PaperMod"
+
+defaultContentLanguage = "zh" # 默认语言
+[languages]
+    [languages.zh]
+        languageName = "中文"
+        title = "孤岛"
+        weight = 1
+        [languages.zh.params]
+            homeInfoParams]
+                Title = "欢迎来到我的世界"
+                Content = "生命只有一次，而我们随时可能离去。"
+        [[languages.zh.menu.main]]
+            name = "归档"
+            url = "/archives"
+            weight = 10
+        [[languages.zh.menu.main]]
+            name = "搜索"
+            url = "/search"
+            weight = 20
+
+    [languages.en]
+        languageName = "English"
+        title = "Isolated Island"
+        weight = 2
+        [languages.en.params]
+            homeInfoParams]
+                Title = "Welcome To My World"
+                Content = "We only live once, and we could go at any time."
+        [[languages.en.menu.main]]
+            name = "Archive"
+            url = "/en/archives"
+            weight = 10
+        [[languages.en.menu.main]]
+            name = "Search"
+            url = "/en/search"
+            weight = 20
 
 [params]
     defaultTheme = "auto"
     showReadingTime = true
     ShowBreadCrumbs = true
     ShowCodeCopyButtons = true
-    ShowFullTextContent = false
-
+    
     [assets]
         favicon = "/favicon.ico"
-        favicon16x16 = "/favicon-32x32.png"
-        favicon32x32 = "/favicon-32x32.png"
-        apple_touch_icon = "/apple-touch-icon.png"
 
     [params.label]
         text = "孤岛"
         icon = "/images/debian-logo.svg"
         iconHeight = 35
-
-    [params.homeInfoParams]
-        Title = "Welcome To My World"
-        Content = "We only live once, and we could go at any time."
-
-[[menu.main]]
-    name = "Archive"
-    url = "/archives"
-    weight = 10
-[[menu.main]]
-    name = "Search"
-    url = "/search"
-    weight = 20
-[[menu.main]]
-    name = "Tags"
-    url = "/tags"
-    weight = 30
 
 [outputs]
     home = ["HTML", "RSS", "JSON"]
