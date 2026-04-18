@@ -7,11 +7,10 @@ defaultContentLanguage = "zh"
     [languages.zh]
         languageName = "中文"
         title = "孤岛"
-        contentDir = "content"
         weight = 1
         [languages.zh.params.homeInfoParams]
             Title = "欢迎来到我的世界"
-            Content = "生命只有一次，而我们随时可能离去。"
+            Content = "We only live once, and we could go at any time."
         [[languages.zh.menu.main]]
             name = "归档"
             url = "/archives"
@@ -24,7 +23,6 @@ defaultContentLanguage = "zh"
     [languages.en]
         languageName = "English"
         title = "Isolated Island"
-        contentDir = "content"
         weight = 2
         [languages.en.params.homeInfoParams]
             Title = "Welcome To My World"
