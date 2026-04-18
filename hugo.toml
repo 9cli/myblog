@@ -1,17 +1,17 @@
 baseURL = "https://blog.183112.xyz"
 title = "孤岛"
 theme = "PaperMod"
+defaultContentLanguage = "zh"
 
-defaultContentLanguage = "zh" # 默认语言
 [languages]
     [languages.zh]
         languageName = "中文"
         title = "孤岛"
+        contentDir = "content"
         weight = 1
-        [languages.zh.params]
-            homeInfoParams]
-                Title = "欢迎来到我的世界"
-                Content = "生命只有一次，而我们随时可能离去。"
+        [languages.zh.params.homeInfoParams]
+            Title = "欢迎来到我的世界"
+            Content = "生命只有一次，而我们随时可能离去。"
         [[languages.zh.menu.main]]
             name = "归档"
             url = "/archives"
@@ -24,11 +24,11 @@ defaultContentLanguage = "zh" # 默认语言
     [languages.en]
         languageName = "English"
         title = "Isolated Island"
+        contentDir = "content"
         weight = 2
-        [languages.en.params]
-            homeInfoParams]
-                Title = "Welcome To My World"
-                Content = "We only live once, and we could go at any time."
+        [languages.en.params.homeInfoParams]
+            Title = "Welcome To My World"
+            Content = "We only live once, and we could go at any time."
         [[languages.en.menu.main]]
             name = "Archive"
             url = "/en/archives"
@@ -44,7 +44,7 @@ defaultContentLanguage = "zh" # 默认语言
     ShowBreadCrumbs = true
     ShowCodeCopyButtons = true
     
-    [assets]
+    [params.assets]
         favicon = "/favicon.ico"
 
     [params.label]
