@@ -1,65 +1,62 @@
 ---
-title: "Hugo 博客管理指令集 (一键复制版)"
-date: 2026-04-21T02:20:46+0800
+title: "Hugo 博客管理指令全书 (通用版)"
+date: 2026-04-21T02:26:47+0800
 draft: false
 tags: ["Tool", "Guide"]
 ---
 
-这份手册包含了管理本博客的所有常用命令。鼠标悬停在代码块右上角即可**一键复制**。
+这份手册包含了管理本博客的所有常用命令。
 
-### 🚀 核心：发布三部曲
+### 🚀 基础：同步三部曲
 每当修改了文章或配置，请依次执行以下命令：
 
 ```bash
-cd ~/myblog
-git add .
-git commit -m "update: content change"
-git push origin main
+cd ~/myblog && git add . && git commit -m "update" && git push origin main
 ```
 
 ---
 
-### 📝 文章操作
-
-**创建新文章**
+### 📝 内容管理
+**新建/删除/查看**
 ```bash
-hugo new posts/new-article.md
+hugo new posts/filename.md           # 新建文章
+rm ~/myblog/content/posts/file.md    # 删除文章
+ls -lt ~/myblog/content/posts/       # 按时间列出所有文章
 ```
 
-**删除指定文章**
+**搜索与状态检查**
 ```bash
-rm ~/myblog/content/posts/文件名.md
-```
-
-**查看所有文章（按时间排序）**
-```bash
-ls -lt ~/myblog/content/posts/
+grep -r "关键字" ~/myblog/content/posts/    # 在所有文章中搜索内容
+grep -r "draft: true" ~/myblog/content/posts/ # 查看哪些是草稿
 ```
 
 ---
 
-### 🖼️ 图片引用 (R2 图床)
-将上传到 Cloudflare R2 的图片粘贴至此处：
-
-```markdown
-![图片描述](https://img.183112.xyz/image-name.jpg)
-```
-
----
-
-### 🛠️ 本地调试与预览
-如果你想在正式发布前检查排版：
-
+### 🛠️ 运维与预览
+**本地预览模式**
 ```bash
 cd ~/myblog && hugo server -D
 ```
 *执行后访问：http://localhost:1313*
 
+**一键发布所有草稿**
+```bash
+sed -i 's/draft: true/draft: false/g' ~/myblog/content/posts/*.md
+```
+
 ---
 
-### 🔍 状态检查
-查看哪些文章目前处于“草稿”状态（不会显示在前端）：
+### 🖼️ R2 图床引用模板
+在 Markdown 中插入已上传至 R2 的图片：
 
+```markdown
+![描述](https://your-cdn-domain.com/image-name.jpg)
+```
+
+---
+
+### 📜 Git 状态维护
 ```bash
-grep -r "draft: true" ~/myblog/content/posts/
+git status                  # 查看当前有哪些文件被修改但未提交
+git log -n 5 --oneline      # 查看最近 5 次提交记录
 ```
