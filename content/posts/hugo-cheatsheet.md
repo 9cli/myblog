@@ -1,62 +1,96 @@
 ---
-title: "Hugo 博客管理指令全书 (通用版)"
-date: 2026-04-21T02:26:47+0800
+title: "Hugo 博客管理指令全书 (单行复制版)"
+date: 2026-04-21T02:30:54+0800
 draft: false
 tags: ["Tool", "Guide"]
 ---
 
-这份手册包含了管理本博客的所有常用命令。
+这份手册中的每一条命令都是独立的，方便你点击右上角直接复制执行。
 
-### 🚀 基础：同步三部曲
-每当修改了文章或配置，请依次执行以下命令：
+### 🚀 核心：同步与推送
+每当完成修改后，按顺序执行：
 
 ```bash
-cd ~/myblog && git add . && git commit -m "update" && git push origin main
+cd ~/myblog
+```
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "update"
+```
+
+```bash
+git push origin main
 ```
 
 ---
 
-### 📝 内容管理
-**新建/删除/查看**
+### 📝 文章管理
+
+**新建文章**
 ```bash
-hugo new posts/filename.md           # 新建文章
-rm ~/myblog/content/posts/file.md    # 删除文章
-ls -lt ~/myblog/content/posts/       # 按时间列出所有文章
+hugo new posts/new-article.md
 ```
 
-**搜索与状态检查**
+**删除指定文章**
 ```bash
-grep -r "关键字" ~/myblog/content/posts/    # 在所有文章中搜索内容
-grep -r "draft: true" ~/myblog/content/posts/ # 查看哪些是草稿
+rm ~/myblog/content/posts/filename.md
+```
+
+**查看文章列表（按时间排序）**
+```bash
+ls -lt ~/myblog/content/posts/
+```
+
+---
+
+### 🔍 内容搜索与状态
+
+**在所有文章中搜索内容**
+```bash
+grep -r "关键字" ~/myblog/content/posts/
+```
+
+**查看当前的草稿文章**
+```bash
+grep -r "draft: true" ~/myblog/content/posts/
 ```
 
 ---
 
 ### 🛠️ 运维与预览
-**本地预览模式**
+
+**开启本地预览**
 ```bash
 cd ~/myblog && hugo server -D
 ```
-*执行后访问：http://localhost:1313*
 
-**一键发布所有草稿**
+**将所有草稿一键发布**
 ```bash
 sed -i 's/draft: true/draft: false/g' ~/myblog/content/posts/*.md
 ```
 
 ---
 
-### 🖼️ R2 图床引用模板
-在 Markdown 中插入已上传至 R2 的图片：
+### 📜 Git 状态维护
 
-```markdown
-![描述](https://your-cdn-domain.com/image-name.jpg)
+**查看哪些文件被修改了**
+```bash
+git status
+```
+
+**查看最近 5 次提交记录**
+```bash
+git log -n 5 --oneline
 ```
 
 ---
 
-### 📜 Git 状态维护
-```bash
-git status                  # 查看当前有哪些文件被修改但未提交
-git log -n 5 --oneline      # 查看最近 5 次提交记录
+### 🖼️ R2 图床引用模板
+
+```markdown
+![描述](https://your-cdn-domain.com/image.jpg)
 ```
