@@ -1,6 +1,6 @@
 ---
 title: "Hugo 博客管理指令全书 (极速复制版)"
-date: 2026-04-21T02:34:43+0800
+date: 2026-04-21T02:36:32+0800
 draft: false
 tags: ["Tool", "Guide"]
 ---
