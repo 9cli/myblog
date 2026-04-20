@@ -1,6 +1,6 @@
 ---
 title: "Hugo博客管理指令"
-date: 2026-04-21T02:42:25+0800
+date: 2026-04-21T02:48:03+0800
 draft: false
 weight: 1
 tags: ["Tool", "Guide"]
@@ -17,19 +17,16 @@ cd ~/myblog && git add . && git commit -m "update" && git push origin main
 
 ---
 
-### 📌 如何置顶文章
-在文章开头的 `---` 之间添加 `weight` 参数：
-- `weight: 1` (最高置顶)
-- `weight: 2` (次之)
-*注意：数字越小，位置越靠前。*
-
----
-
-### 📝 文章管理 (新建与查看)
+### 📝 文章管理 (新建、查看与删除)
 
 **新建文章**
 ```bash
 hugo new posts/new-article.md
+```
+
+**删除指定文章 (请替换文件名为实际名称)**
+```bash
+rm ~/myblog/content/posts/filename.md
 ```
 
 **查看文章列表 (按时间倒序)**
@@ -53,7 +50,7 @@ mv ~/myblog/content/posts/旧文件名.md ~/myblog/content/posts/新文件名.md
 
 ---
 
-### 🔍 搜索与状态
+### 🔍 搜索与状态检查
 
 **全文内容搜索 (替换关键字)**
 ```bash
