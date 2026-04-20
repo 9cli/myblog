@@ -10,22 +10,24 @@ theme = 'PaperMod'
 [params]
     env = 'production'
     title = 'Blog'
-    description = '记录日常'
     author = '9cli'
     
-    # 修复：重新开启亮暗切换功能
+    # 恢复：显示亮暗切换按钮
     defaultTheme = 'auto'
     displayFullContent = false
     ShowReadingTime = true
     ShowCodeCopyButtons = true
 
-    # 首页 Profile Mode 配置
+    # 关键修复：关闭 profileMode 以显示文章列表
     [params.profileMode]
-        enabled = true
-        title = '记录日常'
-        subtitle = 'We only live once, and we could go at any time.'
+        enabled = false
 
-# 修复：使用绝对根路径，确保跳转不再进入 GitHub 原始地址
+    # 关键修复：使用 homeInfoParams 在首页顶部显示“记录日常”
+    [params.homeInfoParams]
+        Title = "记录日常"
+        Content = "We only live once, and we could go at any time."
+
+# 菜单配置：确保路径是绝对路径，避免跳转到 GitHub 地址
 [menu]
     [[menu.main]]
         identifier = 'archives'
