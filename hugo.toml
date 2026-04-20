@@ -1,43 +1,44 @@
-baseURL = 'https://9cli.github.io/myblog/'
-languageCode = 'en-us'
+baseURL = 'https://blog.183112.xyz/'
+languageCode = 'zh-cn'
 title = 'Blog'
 theme = 'PaperMod'
 
+# 开启搜索需要的 JSON 输出
 [outputs]
     home = ["HTML", "RSS", "JSON"]
 
 [params]
     env = 'production'
     title = 'Blog'
-    description = 'We only live once, and we could go at any time.'
-    keywords = ['Blog', 'Hugo', 'PaperMod']
+    description = '记录日常'
     author = '9cli'
     
-    # 首页个人模式配置
+    # 修复：重新开启亮暗切换功能
+    defaultTheme = 'auto'
+    displayFullContent = false
+    ShowReadingTime = true
+    ShowCodeCopyButtons = true
+
+    # 首页 Profile Mode 配置
     [params.profileMode]
         enabled = true
         title = '记录日常'
         subtitle = 'We only live once, and we could go at any time.'
 
-    [params.assets]
-        disableHLJS = false
-
-    # 开启代码复制按钮
-    ShowCodeCopyButtons = true
-
+# 修复：使用绝对根路径，确保跳转不再进入 GitHub 原始地址
 [menu]
     [[menu.main]]
         identifier = 'archives'
         name = '归档'
-        url = 'archives'
+        url = '/archives'
         weight = 10
     [[menu.main]]
         identifier = 'search'
         name = '搜索'
-        url = 'search'
+        url = '/search'
         weight = 20
     [[menu.main]]
         identifier = 'tags'
         name = '标签'
-        url = 'tags'
+        url = '/tags'
         weight = 30
