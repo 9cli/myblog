@@ -1,6 +1,6 @@
 ---
 title: "Linux 命令大全（手册版）"
-date: 2026-04-21T04:06:44+0800
+date: 2026-04-21T04:13:30+0800
 draft: false
 tags: ["Linux", "Manual", "Runoob"]
 ---
@@ -172,12 +172,12 @@ netstat -tpln
 
 **下载网络文件**
 ```bash
-wget https://url.com/file
+wget https://example.com/file
 ```
 
-**向 URL 发送请求**
+**向 URL 发送请求（查看 HTTP 头信息）**
 ```bash
-curl -I https://blog.183112.xyz
+curl -I https://example.com
 ```
 
 ---
