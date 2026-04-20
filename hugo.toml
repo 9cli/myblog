@@ -1,7 +1,10 @@
-baseURL = 'https://9cli.github.io/'
+baseURL = 'https://9cli.github.io/myblog/'
 languageCode = 'en-us'
 title = 'Blog'
 theme = 'PaperMod'
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
 
 [params]
     env = 'production'
@@ -18,22 +21,21 @@ theme = 'PaperMod'
     [params.assets]
         disableHLJS = false
 
-    # 开启代码复制按钮
     ShowCodeCopyButtons = true
 
 [menu]
     [[menu.main]]
         identifier = 'archives'
         name = '归档'
-        url = '/archives'
+        url = 'archives'
         weight = 10
     [[menu.main]]
         identifier = 'search'
         name = '搜索'
-        url = '/search'
+        url = 'search'
         weight = 20
     [[menu.main]]
         identifier = 'tags'
         name = '标签'
-        url = '/tags'
+        url = 'tags'
         weight = 30
