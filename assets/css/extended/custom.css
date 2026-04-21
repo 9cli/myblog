@@ -1,44 +1,35 @@
-/* 护眼暗色模式调优 */
+/* 还原系统默认暗色，仅针对特定组件优化 */
 .dark {
-    /* 背景改为深咖灰，减少对比度刺眼感 */
-    --theme: #1a1c1e;
-    --entry: #242628;
-    
-    /* 文字改为柔和的米白/浅灰 */
-    --primary: #d1d5db;
-    --secondary: #9ca3af;
-    --tertiary: #6b7280;
-    --content: #d1d5db;
-    
-    /* 链接颜色稍微加亮一点点，方便区分 */
-    --link-color: #60a5fa;
-    
-    /* 代码块背景稍微调深，保持层次 */
-    --hljs-bg: #111827;
-    --code-bg: #1f2937;
-    
-    /* 边框线减淡 */
-    --border: #374151;
+    /* 1. 针对 details/summary 标签（你框选的部分）进行美化 */
+    --details-bg: rgba(255, 255, 255, 0.05); /* 使用微透明白，适配任何深色背景 */
 }
 
-/* 优化引用块（Blockquote）的可读性 */
-.dark blockquote {
-    border-left: 2px solid #60a5fa;
-    color: #9ca3af;
-    background: #1f2937;
-}
-
-/* 针对你截图中的细节（如 details/summary 标签）进行优化 */
 .dark details {
-    background: #242628;
-    border: 1px solid #374151;
-    border-radius: 4px;
-    padding: 0.5em;
-    margin-bottom: 1em;
+    background: var(--details-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+/* 移除折叠框打开时可能的突兀感 */
+.dark details[open] {
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .dark summary {
-    color: #f3f4f6;
+    color: #e5e7eb; /* 柔和的白色 */
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    outline: none;
+}
+
+/* 2. 稍微优化一下 blockquote（引用块），让整体风格统一 */
+.dark blockquote {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 4px solid #4b5563;
+    color: #9ca3af;
 }
