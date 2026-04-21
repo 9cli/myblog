@@ -1,0 +1,8 @@
+<details style="margin-bottom: 10px; border: 1px solid #eee; border-radius: 6px;">
+    <summary style="cursor: pointer; font-weight: bold; padding: 10px; background: #f9f9f9; outline: none;">
+        {{ .Get "title" }}
+    </summary>
+    <div style="padding: 10px 15px;">
+        {{ .Inner | markdownify }}
+    </div>
+</details>
