@@ -1,35 +1,79 @@
-/* 还原系统默认暗色，仅针对特定组件优化 */
+/* 全局护眼调优 */
+
+/* 1. 亮色模式：改为柔和米白/纸张感 */
+:root {
+    --theme: #faf9f6;          /* 极浅的米白色背景，不刺眼 */
+    --entry: #ffffff;
+    --primary: #2c3e50;        /* 深蓝灰文字，比纯黑柔和 */
+    --secondary: #5a6a7a;
+    --tertiary: #a0aec0;
+    --content: #2d3748;
+    --hljs-bg: #f8f9fa;
+    --code-bg: #edf2f7;
+    --border: #e2e8f0;
+}
+
+/* 2. 暗色模式：改为深灰蓝（护眼深色） */
 .dark {
-    /* 1. 针对 details/summary 标签（你框选的部分）进行美化 */
-    --details-bg: rgba(255, 255, 255, 0.05); /* 使用微透明白，适配任何深色背景 */
+    --theme: #1a202c;          /* 深灰蓝背景，比纯黑更护眼 */
+    --entry: #2d3748;
+    --primary: #e2e8f0;        /* 灰白文字 */
+    --secondary: #a0aec0;
+    --tertiary: #718096;
+    --content: #cbd5e0;
+    --hljs-bg: #111827;
+    --code-bg: #212936;
+    --border: #374151;
 }
 
+/* 3. 针对你框选的 details/summary 组件的精准美化 */
+details {
+    padding: 12px 16px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    transition: background 0.3s ease;
+}
+
+/* 亮色模式下的折叠框背景 */
+:root details {
+    background: #f1f5f9;
+}
+
+/* 暗色模式下的折叠框背景（半透明消隐感） */
 .dark details {
-    background: var(--details-bg);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 10px 15px;
-    margin-bottom: 12px;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.04);
 }
 
-/* 移除折叠框打开时可能的突兀感 */
-.dark details[open] {
-    background: rgba(255, 255, 255, 0.08);
+details[open] {
+    background: var(--entry);
 }
 
-.dark summary {
-    color: #e5e7eb; /* 柔和的白色 */
+summary {
     cursor: pointer;
     font-weight: 600;
-    outline: none;
+    color: var(--primary);
+    list-style: none; /* 移除默认小箭头 */
 }
 
-/* 2. 稍微优化一下 blockquote（引用块），让整体风格统一 */
-.dark blockquote {
-    margin: 20px 0;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 4px solid #4b5563;
-    color: #9ca3af;
+/* 自定义小箭头 */
+summary::-webkit-details-marker {
+    display: none;
+}
+
+summary::before {
+    content: "▹";
+    margin-right: 8px;
+    color: var(--secondary);
+}
+
+details[open] summary::before {
+    content: "▿";
+}
+
+/* 4. 优化代码块和引用的边框，减少割裂感 */
+blockquote {
+    border-left: 4px solid var(--tertiary);
+    padding-left: 15px;
+    color: var(--secondary);
 }
