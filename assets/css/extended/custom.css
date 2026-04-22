@@ -87,3 +87,14 @@ summary::before {
     color: #8c7851 !important;
     margin-left: 4px;
 }
+
+/* 7. 隐藏文章末尾的标签列表，但保留主页标签索引功能 */
+.post-footer .post-tags {
+    display: none !important;
+}
+
+/* 如果你想顺便把标签前面的那个线也去掉，让页面更干净 */
+.post-footer {
+    margin-top: 20px;
+    border-top: none !important;
+}
