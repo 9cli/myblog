@@ -1,5 +1,5 @@
 ---
-title: "Linux 命令大全（手册版）"
+title: "Linux常用命令"
 date: 2026-04-21T04:13:30+0800
 draft: false
 tags: ["Linux", "Manual", "Runoob"]
