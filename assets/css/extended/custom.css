@@ -1,45 +1,73 @@
-/* 全局复古纸张模式 - 停用亮暗逻辑 */
+/* 1. 全局复古背景锁定 */
 :root, .dark {
-    /* 背景：温和的米黄/羊皮纸色 */
     --theme: #f4f0e6 !important;
     --entry: #fdfaf2 !important;
-    
-    /* 文字：深褐色，比纯黑更有书卷气 */
     --primary: #433422 !important;
     --secondary: #6b5a46 !important;
     --tertiary: #a69685 !important;
     --content: #433422 !important;
-    
-    /* 链接：低饱和度的赭石色 */
-    --link-color: #a0522d !important;
-    
-    /* 代码块：深棕色背景，浅色奶油字 */
-    --hljs-bg: #2d241b !important;
-    --code-bg: #3a2f24 !important;
-    
-    /* 边框：浅褐色 */
     --border: #dcd5c5 !important;
 }
 
-/* 强制覆盖代码块内文字颜色，确保对比度 */
-pre code {
-    color: #f2e9d9 !important;
-}
-
-/* 优化折叠框 (Details) 的复古感 */
+/* 2. 针对你截图中的折叠框（details）进行深度视觉重构 */
 details {
-    background: #ebe4d5 !important;
+    /* 彻底告别白色背景：改为比主背景稍深的古董纸色 */
+    background: #ede6d6 !important;
+    
+    /* 添加一个内向的阴影，制造出一种“在纸面上凹进去”的质感 */
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.05);
+    
+    /* 使用低饱和度的褐色边框 */
     border: 1px solid #d4ccb8 !important;
+    
     border-radius: 6px;
-    padding: 12px;
+    padding: 10px 15px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
 }
 
+/* 鼠标悬停时稍微加深背景，增加交互感 */
+details:hover {
+    background: #e5dec9 !important;
+}
+
+/* 点开后的状态：让背景更干净，方便阅读内容 */
+details[open] {
+    background: #fdfaf2 !important; /* 展开后变回浅色纸张，提高文字对比度 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+/* 3. 修正标题文字颜色与样式 */
 summary {
     color: #433422 !important;
-    font-weight: bold;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
 }
 
-/* 隐藏切换按钮（因为已经没必要切了） */
+/* 修复小箭头的颜色与间距 */
+summary::before {
+    content: "▶";
+    font-size: 0.8em;
+    margin-right: 10px;
+    color: #8c7851;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
+/* 4. 彻底隐藏暗亮切换按钮，保持界面纯净 */
 #theme-toggle {
     display: none !important;
+}
+
+/* 5. 修复代码块（在复古模式下更像黑板或深褐木板） */
+.highlight {
+    background: #2d241b !important;
+    border-radius: 6px;
+    border: 2px solid #3d3125;
 }
