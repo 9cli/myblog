@@ -1,61 +1,50 @@
-/* 1. 亮色模式（纸张感）下的折叠框 */
-:root details {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
+/* 1. 亮色模式优化 */
+:root {
+    --theme: #faf9f6;
+    --primary: #2c3e50;
+    --code-bg: #f1f5f9;
 }
 
-:root summary {
-    color: #1a202c;
-    font-weight: 600;
+/* 2. 暗色模式 - 彻底解决可读性 */
+.dark {
+    --theme: #1a202c; 
+    --primary: #edf2f7;
+    /* 让代码块背景更深、更纯净，与折叠框区分开 */
+    --code-bg: #0d1117; 
 }
 
-/* 2. 暗色模式（护眼深蓝）下的折叠框修复 - 解决白底灰字问题 */
+/* 3. 针对代码块（Code Block）的强制高亮修复 */
+.dark .highlight pre {
+    background: #0d1117 !important; /* 强制使用 GitHub Dark 风格的底色 */
+    color: #e6edf3 !important;      /* 强制主要文字为近白色 */
+}
+
+/* 4. 解决你截图中的“白底灰字”残余问题 */
 .dark details {
-    /* 彻底放弃白色背景，改用比主背景稍浅的深色 */
-    background: #2d3748 !important; 
+    background: #2d3748 !important;
     border: 1px solid #4a5568;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 12px;
+    color: #edf2f7 !important;
 }
 
 .dark summary {
-    /* 强制文字为高亮白灰色，确保可读性 */
-    color: #edf2f7 !important;
-    font-weight: 600;
-    cursor: pointer;
+    color: #ffffff !important;
+    font-weight: bold;
 }
 
-/* 展开后的内容文字颜色 */
-.dark details[open] {
-    background: #2d3748;
+/* 5. 修复之前错位的按钮并优化外观 */
+.highlight {
+    position: relative !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.dark details > div, 
-.dark details > p,
-.dark details > ul {
-    color: #cbd5e0 !important;
-    margin-top: 10px;
-}
-
-/* 移除原生的小箭头，改用更现代的符号 */
-summary {
-    list-style: none;
-    outline: none;
-}
-summary::-webkit-details-marker {
-    display: none;
-}
-summary::before {
-    content: "→";
-    margin-right: 10px;
-    color: #718096;
-    transition: transform 0.2s;
-    display: inline-block;
-}
-details[open] summary::before {
-    transform: rotate(90deg);
+.copy-code {
+    position: absolute !important;
+    right: 10px !important;
+    top: 10px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 2px 8px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
 }
