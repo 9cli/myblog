@@ -1,73 +1,68 @@
-/* 1. 全局复古背景锁定 */
+/* 1. 基础复古色调 */
 :root, .dark {
     --theme: #f4f0e6 !important;
     --entry: #fdfaf2 !important;
     --primary: #433422 !important;
     --secondary: #6b5a46 !important;
-    --tertiary: #a69685 !important;
     --content: #433422 !important;
     --border: #dcd5c5 !important;
 }
 
-/* 2. 针对你截图中的折叠框（details）进行深度视觉重构 */
+/* 2. 深度重构折叠框 (Details) 外框 */
 details {
-    /* 彻底告别白色背景：改为比主背景稍深的古董纸色 */
-    background: #ede6d6 !important;
-    
-    /* 添加一个内向的阴影，制造出一种“在纸面上凹进去”的质感 */
-    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.05);
-    
-    /* 使用低饱和度的褐色边框 */
+    /* 核心修改：去掉白色背景，改用比底色稍深的米色，营造凹陷感 */
+    background: #ede6d6 !important; 
     border: 1px solid #d4ccb8 !important;
-    
-    border-radius: 6px;
-    padding: 10px 15px;
-    margin-bottom: 12px;
-    transition: all 0.3s ease;
+    border-radius: 4px; /* 减小圆角，更显干练 */
+    margin-bottom: 15px;
+    padding: 0 !important; /* 清除默认内边距，让标题栏填满 */
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* 内部阴影，模拟纸张下沉 */
 }
 
-/* 鼠标悬停时稍微加深背景，增加交互感 */
-details:hover {
-    background: #e5dec9 !important;
-}
-
-/* 点开后的状态：让背景更干净，方便阅读内容 */
-details[open] {
-    background: #fdfaf2 !important; /* 展开后变回浅色纸张，提高文字对比度 */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-/* 3. 修正标题文字颜色与样式 */
+/* 3. 重构标题部分 (Summary) - 即你框起来的白色部分 */
 summary {
+    /* 关键：去掉那层突兀的白色背景 */
+    background: #e5dec9 !important; 
+    padding: 12px 15px !important;
     color: #433422 !important;
     font-weight: 600;
     cursor: pointer;
     list-style: none;
-    outline: none;
+    border-bottom: 1px solid transparent;
+    transition: background 0.2s ease;
 }
 
-/* 修复小箭头的颜色与间距 */
+/* 鼠标悬停在标题栏时稍微变暗，提示可点击 */
+summary:hover {
+    background: #dfd7be !important;
+}
+
+/* 展开后的标题栏样式：加一道分隔线 */
+details[open] summary {
+    background: #dfd7be !important;
+    border-bottom: 1px solid #d4ccb8;
+}
+
+/* 4. 折叠框内部展开后的内容区 */
+details > div, 
+details > p, 
+details > ul {
+    background: #fdfaf2 !important; /* 展开后内容区变亮，方便阅读文字 */
+    padding: 15px !important;
+    margin: 0 !important;
+    color: #433422 !important;
+}
+
+/* 5. 符号优化：把三角形改成更精致的样式 */
 summary::before {
-    content: "▶";
-    font-size: 0.8em;
+    content: "◈"; /* 使用复古的菱形符号 */
     margin-right: 10px;
     color: #8c7851;
-    transition: transform 0.2s;
-    display: inline-block;
+    font-size: 0.9em;
 }
 
-details[open] summary::before {
-    transform: rotate(90deg);
-}
-
-/* 4. 彻底隐藏暗亮切换按钮，保持界面纯净 */
+/* 隐藏切换按钮 */
 #theme-toggle {
     display: none !important;
-}
-
-/* 5. 修复代码块（在复古模式下更像黑板或深褐木板） */
-.highlight {
-    background: #2d241b !important;
-    border-radius: 6px;
-    border: 2px solid #3d3125;
 }
