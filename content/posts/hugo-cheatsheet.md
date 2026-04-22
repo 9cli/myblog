@@ -40,12 +40,12 @@ ls -lt ~/myblog/content/posts/
 
 **1. 修改显示标题**
 ```bash
-sed -i 's/^title: .*/title: "你的新标题"/' ~/myblog/content/posts/文件名.md
+sed -i 's/^title: .*/title: "article_name"/' ~/myblog/content/posts/file_name.md
 ```
 
 **2. 修改文件名 (URL 地址)**
 ```bash
-mv ~/myblog/content/posts/旧文件名.md ~/myblog/content/posts/新文件名.md
+mv ~/myblog/content/posts/old_filename.md ~/myblog/content/posts/new_filename.md
 ```
 
 ---
